@@ -1,0 +1,15 @@
+#!/bin/sh
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home
+JAVA=$JAVA_HOME/bin/java
+APP_PACKAGE=/Applications/Minecraft.app
+MAIN=net.minecraft.bootstrap.Bootstrap
+CP=$APP_PACKAGE/Contents/Resources/Java/Bootstrap.jar
+
+DOPTS="-Dsun.java2d.noddraw=true -Dsun.java2d.d3d=false -Dsun.java2d.opengl=false -Dsun.java2d.pmoffscreen=false"
+XMX="-Xmx1G"
+
+nohup $JAVA $XMX $DOPTS -cp $CP $MAIN /tmp/minecraft.log &
+
+
+
